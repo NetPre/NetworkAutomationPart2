@@ -1,0 +1,10 @@
+{
+    "ietf-interfaces:interfaces": {
+        "interface": [
+            {
+                "name": "TenGigabitEthernet1/0/3", 
+                "description": "NETCONF-CONFIGURED PORT"
+            }
+        ]
+    }
+}

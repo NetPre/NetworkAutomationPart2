@@ -1,0 +1,3208 @@
+<?xml version="1.0" ?>
+<data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+	<native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+		<version>16.9</version>
+		<call-home>
+			<contact-email-addr xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-call-home">sch-smart-licensing@cisco.com</contact-email-addr>
+			<profile xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-call-home">
+				<profile-name>CiscoTAC-1</profile-name>
+				<active>true</active>
+			</profile>
+		</call-home>
+		<service>
+			<timestamps>
+				<debug>
+					<datetime>
+						<msec/>
+					</datetime>
+				</debug>
+				<log>
+					<datetime>
+						<msec/>
+					</datetime>
+				</log>
+			</timestamps>
+			<call-home/>
+		</service>
+		<hostname>Switch</hostname>
+		<enable>
+			<secret>
+				<type>5</type>
+				<secret>$1$FPW6$FYqdHFCKbW/qadV4wOfJD.</secret>
+			</secret>
+		</enable>
+		<username>
+			<name>cisco</name>
+			<privilege>15</privilege>
+			<password>
+				<encryption>0</encryption>
+				<password>cisco</password>
+			</password>
+		</username>
+		<vrf>
+			<definition>
+				<name>Mgmt-vrf</name>
+				<address-family>
+					<ipv4/>
+					<ipv6/>
+				</address-family>
+			</definition>
+		</vrf>
+		<ip>
+			<forward-protocol>
+				<protocol>nd</protocol>
+			</forward-protocol>
+			<access-list>
+				<extended xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+					<name>IP-Adm-V4-Int-ACL-global</name>
+					<access-list-seq-rule>
+						<sequence>10</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>tcp</protocol>
+							<any/>
+							<dst-any/>
+							<dst-eq>www</dst-eq>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>20</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>tcp</protocol>
+							<any/>
+							<dst-any/>
+							<dst-eq>443</dst-eq>
+						</ace-rule>
+					</access-list-seq-rule>
+				</extended>
+				<extended xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+					<name>implicit_deny</name>
+					<access-list-seq-rule>
+						<sequence>10</sequence>
+						<ace-rule>
+							<action>deny</action>
+							<protocol>ip</protocol>
+							<any/>
+							<dst-any/>
+						</ace-rule>
+					</access-list-seq-rule>
+				</extended>
+				<extended xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+					<name>implicit_permit</name>
+					<access-list-seq-rule>
+						<sequence>10</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>ip</protocol>
+							<any/>
+							<dst-any/>
+						</ace-rule>
+					</access-list-seq-rule>
+				</extended>
+				<extended xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+					<name>preauth_v4</name>
+					<access-list-seq-rule>
+						<sequence>10</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>udp</protocol>
+							<any/>
+							<dst-any/>
+							<dst-eq>domain</dst-eq>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>20</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>tcp</protocol>
+							<any/>
+							<dst-any/>
+							<dst-eq>domain</dst-eq>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>30</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>udp</protocol>
+							<any/>
+							<src-eq>bootps</src-eq>
+							<dst-any/>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>40</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>udp</protocol>
+							<any/>
+							<dst-any/>
+							<dst-eq>bootpc</dst-eq>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>50</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>udp</protocol>
+							<any/>
+							<src-eq>bootpc</src-eq>
+							<dst-any/>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>60</sequence>
+						<ace-rule>
+							<action>deny</action>
+							<protocol>ip</protocol>
+							<any/>
+							<dst-any/>
+						</ace-rule>
+					</access-list-seq-rule>
+				</extended>
+			</access-list>
+			<http xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-http">
+				<authentication>
+					<local/>
+				</authentication>
+				<server>true</server>
+				<secure-server>true</secure-server>
+				<client>
+					<source-interface>Vlan1</source-interface>
+				</client>
+			</http>
+		</ip>
+		<ipv6>
+			<access-list>
+				<named-acl xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+					<name>implicit_deny_v6</name>
+					<access-list-seq-rule>
+						<sequence>10</sequence>
+						<ace-rule>
+							<action>deny</action>
+							<protocol>ipv6</protocol>
+							<any/>
+							<destination-any/>
+						</ace-rule>
+					</access-list-seq-rule>
+				</named-acl>
+				<named-acl xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+					<name>implicit_permit_v6</name>
+					<access-list-seq-rule>
+						<sequence>10</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>ipv6</protocol>
+							<any/>
+							<destination-any/>
+						</ace-rule>
+					</access-list-seq-rule>
+				</named-acl>
+				<named-acl xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+					<name>preauth_v6</name>
+					<access-list-seq-rule>
+						<sequence>10</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>udp</protocol>
+							<any/>
+							<destination-any/>
+							<dst-eq>domain</dst-eq>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>20</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>tcp</protocol>
+							<any/>
+							<destination-any/>
+							<dst-eq>domain</dst-eq>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>80</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>udp</protocol>
+							<any/>
+							<src-eq>547</src-eq>
+							<destination-any/>
+							<dst-eq>546</dst-eq>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>90</sequence>
+						<ace-rule>
+							<action>permit</action>
+							<protocol>udp</protocol>
+							<any/>
+							<src-eq>546</src-eq>
+							<destination-any/>
+							<dst-eq>547</dst-eq>
+						</ace-rule>
+					</access-list-seq-rule>
+					<access-list-seq-rule>
+						<sequence>100</sequence>
+						<ace-rule>
+							<action>deny</action>
+							<protocol>ipv6</protocol>
+							<any/>
+							<destination-any/>
+						</ace-rule>
+					</access-list-seq-rule>
+				</named-acl>
+			</access-list>
+			<unicast-routing/>
+		</ipv6>
+		<policy>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>non-client-nrt-class</name>
+				<prematch>match-any</prematch>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-default</name>
+				<prematch>match-any</prematch>
+				<description>Inter FED, EWLC control, EWLC data</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-data</name>
+				<prematch>match-any</prematch>
+				<description>ICMP redirect, ICMP_GEN and BROADCAST</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-dhcp-snooping</name>
+				<prematch>match-any</prematch>
+				<description>DHCP snooping</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-dot1x-auth</name>
+				<prematch>match-any</prematch>
+				<description>DOT1X Auth</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-forus</name>
+				<prematch>match-any</prematch>
+				<description>Forus Address resolution and Forus traffic</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-high-rate-app</name>
+				<prematch>match-any</prematch>
+				<description>High Rate Applications</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-l2-control</name>
+				<prematch>match-any</prematch>
+				<description>L2 control</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-l2lvx-control</name>
+				<prematch>match-any</prematch>
+				<description>L2 LVX control packets</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-multicast</name>
+				<prematch>match-any</prematch>
+				<description>Transit Traffic and MCAST Data</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-multicast-end-station</name>
+				<prematch>match-any</prematch>
+				<description>MCAST END STATION</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-protocol-snooping</name>
+				<prematch>match-any</prematch>
+				<description>Protocol snooping</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-punt-webauth</name>
+				<prematch>match-any</prematch>
+				<description>Punt Webauth</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-routing-control</name>
+				<prematch>match-any</prematch>
+				<description>Routing control and Low Latency</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-stackwise-virt-control</name>
+				<prematch>match-any</prematch>
+				<description>Stackwise Virtual</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-sw-forward</name>
+				<prematch>match-any</prematch>
+				<description>Sw forwarding, L2 LVX data, LOGGING</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-sys-data</name>
+				<prematch>match-any</prematch>
+				<description>Learning cache ovfl, High Rate App, Exception, EGR Exception, NFL SAMPLED DATA, RPF Failed</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-system-critical</name>
+				<prematch>match-any</prematch>
+				<description>System Critical and Gold Pkt</description>
+			</class-map>
+			<class-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-police-topology-control</name>
+				<prematch>match-any</prematch>
+				<description>Topology control</description>
+			</class-map>
+			<policy-map xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<name>system-cpp-policy</name>
+			</policy-map>
+		</policy>
+		<interface>
+			<GigabitEthernet>
+				<name>0/0</name>
+				<shutdown/>
+				<vrf>
+					<forwarding>Mgmt-vrf</forwarding>
+				</vrf>
+				<negotiation xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+					<auto>true</auto>
+				</negotiation>
+			</GigabitEthernet>
+			<GigabitEthernet>
+				<name>1/1/1</name>
+			</GigabitEthernet>
+			<GigabitEthernet>
+				<name>1/1/2</name>
+			</GigabitEthernet>
+			<GigabitEthernet>
+				<name>1/1/3</name>
+			</GigabitEthernet>
+			<GigabitEthernet>
+				<name>1/1/4</name>
+			</GigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/1</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/10</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/11</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/12</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/13</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/14</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/15</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/16</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/17</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/18</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/19</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/2</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/20</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/21</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/22</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/23</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/24</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/3</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/4</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/5</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/6</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/7</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/8</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/9</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/1/1</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/1/2</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/1/3</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/1/4</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/1/5</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/1/6</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/1/7</name>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/1/8</name>
+			</TenGigabitEthernet>
+			<TwentyFiveGigE>
+				<name>1/1/1</name>
+			</TwentyFiveGigE>
+			<TwentyFiveGigE>
+				<name>1/1/2</name>
+			</TwentyFiveGigE>
+			<FortyGigabitEthernet>
+				<name>1/1/1</name>
+			</FortyGigabitEthernet>
+			<FortyGigabitEthernet>
+				<name>1/1/2</name>
+			</FortyGigabitEthernet>
+			<Vlan>
+				<name>1</name>
+				<ip>
+					<address>
+						<primary>
+							<address>192.168.0.200</address>
+							<mask>255.255.255.0</mask>
+						</primary>
+					</address>
+				</ip>
+				<ipv6>
+					<dhcp>
+						<client xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+							<request>
+								<vendor/>
+							</request>
+						</client>
+					</dhcp>
+					<address>
+						<autoconfig/>
+					</address>
+					<enable/>
+				</ipv6>
+			</Vlan>
+		</interface>
+		<control-plane>
+			<service-policy xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-policy">
+				<input>system-cpp-policy</input>
+			</service-policy>
+		</control-plane>
+		<aaa>
+			<new-model xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa"/>
+			<authentication xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa">
+				<login>
+					<name>default</name>
+					<a1>
+						<local/>
+					</a1>
+				</login>
+			</authentication>
+			<authorization xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa">
+				<exec>
+					<name>default</name>
+					<a1>
+						<local/>
+					</a1>
+				</exec>
+			</authorization>
+			<session-id xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa">common</session-id>
+		</aaa>
+		<login>
+			<on-success>
+				<log/>
+			</on-success>
+		</login>
+		<redundancy>
+			<mode>sso</mode>
+		</redundancy>
+		<spanning-tree>
+			<extend xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-spanning-tree">
+				<system-id/>
+			</extend>
+			<mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-spanning-tree">rapid-pvst</mode>
+		</spanning-tree>
+		<crypto>
+			<pki xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-crypto">
+				<trustpoint>
+					<id>SLA-TrustPoint</id>
+					<enrollment>
+						<pkcs12/>
+					</enrollment>
+					<revocation-check>crl</revocation-check>
+				</trustpoint>
+				<trustpoint>
+					<id>TP-self-signed-1270588265</id>
+					<enrollment>
+						<selfsigned/>
+					</enrollment>
+					<revocation-check>none</revocation-check>
+					<rsakeypair>
+						<key-label>TP-self-signed-1270588265</key-label>
+					</rsakeypair>
+					<subject-name>cn=IOS-Self-Signed-Certificate-1270588265</subject-name>
+				</trustpoint>
+				<certificate>
+					<chain>
+						<name>SLA-TrustPoint</name>
+						<certificate>
+							<serial>01</serial>
+							<certtype>ca</certtype>
+						</certificate>
+					</chain>
+					<chain>
+						<name>TP-self-signed-1270588265</name>
+						<certificate>
+							<serial>01</serial>
+							<certtype>self-signed</certtype>
+						</certificate>
+					</chain>
+				</certificate>
+			</pki>
+		</crypto>
+		<line>
+			<console>
+				<first>0</first>
+				<stopbits>1</stopbits>
+			</console>
+			<vty>
+				<first>5</first>
+				<last>15</last>
+			</vty>
+		</line>
+		<diagnostic xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-diagnostics">
+			<bootup>
+				<level>minimal</level>
+			</bootup>
+		</diagnostic>
+	</native>
+	<licensing xmlns="http://cisco.com/ns/yang/cisco-smart-license">
+		<config>
+			<enable>false</enable>
+			<privacy>
+				<hostname>false</hostname>
+				<version>false</version>
+			</privacy>
+			<utility>
+				<utility-enable>false</utility-enable>
+			</utility>
+		</config>
+	</licensing>
+	<acl xmlns="http://openconfig.net/yang/acl">
+		<acl-sets>
+			<acl-set>
+				<name>IP-Adm-V4-Int-ACL-global</name>
+				<type>ACL_IPV4</type>
+				<config>
+					<name>IP-Adm-V4-Int-ACL-global</name>
+					<type>ACL_IPV4</type>
+				</config>
+				<acl-entries>
+					<acl-entry>
+						<sequence-id>10</sequence-id>
+						<config>
+							<sequence-id>10</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_TCP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>80</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>20</sequence-id>
+						<config>
+							<sequence-id>20</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_TCP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>443</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+				</acl-entries>
+			</acl-set>
+			<acl-set>
+				<name>implicit_deny</name>
+				<type>ACL_IPV4</type>
+				<config>
+					<name>implicit_deny</name>
+					<type>ACL_IPV4</type>
+				</config>
+				<acl-entries>
+					<acl-entry>
+						<sequence-id>10</sequence-id>
+						<config>
+							<sequence-id>10</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-acl-cisco="http://cisco.com/ns/yang/cisco-xe-openconfig-acl-ext">oc-acl-cisco:IP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>ANY</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>DROP</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+				</acl-entries>
+			</acl-set>
+			<acl-set>
+				<name>implicit_deny_v6</name>
+				<type>ACL_IPV6</type>
+				<config>
+					<name>implicit_deny_v6</name>
+					<type>ACL_IPV6</type>
+				</config>
+				<acl-entries>
+					<acl-entry>
+						<sequence-id>10</sequence-id>
+						<config>
+							<sequence-id>10</sequence-id>
+						</config>
+						<ipv6>
+							<config>
+								<protocol xmlns:oc-acl-cisco="http://cisco.com/ns/yang/cisco-xe-openconfig-acl-ext">oc-acl-cisco:IPV6</protocol>
+							</config>
+						</ipv6>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>ANY</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>DROP</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+				</acl-entries>
+			</acl-set>
+			<acl-set>
+				<name>implicit_permit</name>
+				<type>ACL_IPV4</type>
+				<config>
+					<name>implicit_permit</name>
+					<type>ACL_IPV4</type>
+				</config>
+				<acl-entries>
+					<acl-entry>
+						<sequence-id>10</sequence-id>
+						<config>
+							<sequence-id>10</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-acl-cisco="http://cisco.com/ns/yang/cisco-xe-openconfig-acl-ext">oc-acl-cisco:IP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>ANY</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+				</acl-entries>
+			</acl-set>
+			<acl-set>
+				<name>implicit_permit_v6</name>
+				<type>ACL_IPV6</type>
+				<config>
+					<name>implicit_permit_v6</name>
+					<type>ACL_IPV6</type>
+				</config>
+				<acl-entries>
+					<acl-entry>
+						<sequence-id>10</sequence-id>
+						<config>
+							<sequence-id>10</sequence-id>
+						</config>
+						<ipv6>
+							<config>
+								<protocol xmlns:oc-acl-cisco="http://cisco.com/ns/yang/cisco-xe-openconfig-acl-ext">oc-acl-cisco:IPV6</protocol>
+							</config>
+						</ipv6>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>ANY</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+				</acl-entries>
+			</acl-set>
+			<acl-set>
+				<name>preauth_v4</name>
+				<type>ACL_IPV4</type>
+				<config>
+					<name>preauth_v4</name>
+					<type>ACL_IPV4</type>
+				</config>
+				<acl-entries>
+					<acl-entry>
+						<sequence-id>10</sequence-id>
+						<config>
+							<sequence-id>10</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_UDP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>53</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>20</sequence-id>
+						<config>
+							<sequence-id>20</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_TCP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>53</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>30</sequence-id>
+						<config>
+							<sequence-id>30</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_UDP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>67</source-port>
+								<destination-port>ANY</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>40</sequence-id>
+						<config>
+							<sequence-id>40</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_UDP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>68</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>50</sequence-id>
+						<config>
+							<sequence-id>50</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_UDP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>68</source-port>
+								<destination-port>ANY</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>60</sequence-id>
+						<config>
+							<sequence-id>60</sequence-id>
+						</config>
+						<ipv4>
+							<config>
+								<protocol xmlns:oc-acl-cisco="http://cisco.com/ns/yang/cisco-xe-openconfig-acl-ext">oc-acl-cisco:IP</protocol>
+							</config>
+						</ipv4>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>ANY</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>DROP</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+				</acl-entries>
+			</acl-set>
+			<acl-set>
+				<name>preauth_v6</name>
+				<type>ACL_IPV6</type>
+				<config>
+					<name>preauth_v6</name>
+					<type>ACL_IPV6</type>
+				</config>
+				<acl-entries>
+					<acl-entry>
+						<sequence-id>10</sequence-id>
+						<config>
+							<sequence-id>10</sequence-id>
+						</config>
+						<ipv6>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_UDP</protocol>
+							</config>
+						</ipv6>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>53</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>20</sequence-id>
+						<config>
+							<sequence-id>20</sequence-id>
+						</config>
+						<ipv6>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_TCP</protocol>
+							</config>
+						</ipv6>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>53</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>80</sequence-id>
+						<config>
+							<sequence-id>80</sequence-id>
+						</config>
+						<ipv6>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_UDP</protocol>
+							</config>
+						</ipv6>
+						<transport>
+							<config>
+								<source-port>547</source-port>
+								<destination-port>546</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>90</sequence-id>
+						<config>
+							<sequence-id>90</sequence-id>
+						</config>
+						<ipv6>
+							<config>
+								<protocol xmlns:oc-pkt-match-types="http://openconfig.net/yang/packet-match-types">oc-pkt-match-types:IP_UDP</protocol>
+							</config>
+						</ipv6>
+						<transport>
+							<config>
+								<source-port>546</source-port>
+								<destination-port>547</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>ACCEPT</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+					<acl-entry>
+						<sequence-id>100</sequence-id>
+						<config>
+							<sequence-id>100</sequence-id>
+						</config>
+						<ipv6>
+							<config>
+								<protocol xmlns:oc-acl-cisco="http://cisco.com/ns/yang/cisco-xe-openconfig-acl-ext">oc-acl-cisco:IPV6</protocol>
+							</config>
+						</ipv6>
+						<transport>
+							<config>
+								<source-port>ANY</source-port>
+								<destination-port>ANY</destination-port>
+							</config>
+						</transport>
+						<actions>
+							<config>
+								<forwarding-action>DROP</forwarding-action>
+								<log-action>LOG_NONE</log-action>
+							</config>
+						</actions>
+					</acl-entry>
+				</acl-entries>
+			</acl-set>
+		</acl-sets>
+	</acl>
+	<interfaces xmlns="http://openconfig.net/yang/interfaces">
+		<interface>
+			<name>FortyGigabitEthernet1/1/1</name>
+			<config>
+				<name>FortyGigabitEthernet1/1/1</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:a5</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>FortyGigabitEthernet1/1/2</name>
+			<config>
+				<name>FortyGigabitEthernet1/1/2</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:a6</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>GigabitEthernet0/0</name>
+			<config>
+				<name>GigabitEthernet0/0</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>false</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>false</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:80</mac-address>
+					<auto-negotiate>true</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>GigabitEthernet1/1/1</name>
+			<config>
+				<name>GigabitEthernet1/1/1</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:99</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>GigabitEthernet1/1/2</name>
+			<config>
+				<name>GigabitEthernet1/1/2</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:9a</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>GigabitEthernet1/1/3</name>
+			<config>
+				<name>GigabitEthernet1/1/3</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:9b</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>GigabitEthernet1/1/4</name>
+			<config>
+				<name>GigabitEthernet1/1/4</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:9c</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/1</name>
+			<config>
+				<name>TenGigabitEthernet1/0/1</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:81</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/10</name>
+			<config>
+				<name>TenGigabitEthernet1/0/10</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:8a</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/11</name>
+			<config>
+				<name>TenGigabitEthernet1/0/11</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:8b</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/12</name>
+			<config>
+				<name>TenGigabitEthernet1/0/12</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:8c</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/13</name>
+			<config>
+				<name>TenGigabitEthernet1/0/13</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:8d</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/14</name>
+			<config>
+				<name>TenGigabitEthernet1/0/14</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:8e</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/15</name>
+			<config>
+				<name>TenGigabitEthernet1/0/15</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:8f</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/16</name>
+			<config>
+				<name>TenGigabitEthernet1/0/16</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:90</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/17</name>
+			<config>
+				<name>TenGigabitEthernet1/0/17</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:91</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/18</name>
+			<config>
+				<name>TenGigabitEthernet1/0/18</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:92</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/19</name>
+			<config>
+				<name>TenGigabitEthernet1/0/19</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:93</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/2</name>
+			<config>
+				<name>TenGigabitEthernet1/0/2</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:82</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/20</name>
+			<config>
+				<name>TenGigabitEthernet1/0/20</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:94</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/21</name>
+			<config>
+				<name>TenGigabitEthernet1/0/21</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:95</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/22</name>
+			<config>
+				<name>TenGigabitEthernet1/0/22</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:96</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/23</name>
+			<config>
+				<name>TenGigabitEthernet1/0/23</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:97</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/24</name>
+			<config>
+				<name>TenGigabitEthernet1/0/24</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:98</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/3</name>
+			<config>
+				<name>TenGigabitEthernet1/0/3</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:83</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/4</name>
+			<config>
+				<name>TenGigabitEthernet1/0/4</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:84</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/5</name>
+			<config>
+				<name>TenGigabitEthernet1/0/5</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:85</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/6</name>
+			<config>
+				<name>TenGigabitEthernet1/0/6</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:86</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/7</name>
+			<config>
+				<name>TenGigabitEthernet1/0/7</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:87</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/8</name>
+			<config>
+				<name>TenGigabitEthernet1/0/8</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:88</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/9</name>
+			<config>
+				<name>TenGigabitEthernet1/0/9</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:89</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/1</name>
+			<config>
+				<name>TenGigabitEthernet1/1/1</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:9d</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/2</name>
+			<config>
+				<name>TenGigabitEthernet1/1/2</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:9e</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/3</name>
+			<config>
+				<name>TenGigabitEthernet1/1/3</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:9f</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/4</name>
+			<config>
+				<name>TenGigabitEthernet1/1/4</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:a0</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/5</name>
+			<config>
+				<name>TenGigabitEthernet1/1/5</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:a1</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/6</name>
+			<config>
+				<name>TenGigabitEthernet1/1/6</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:a2</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/7</name>
+			<config>
+				<name>TenGigabitEthernet1/1/7</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:a3</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/8</name>
+			<config>
+				<name>TenGigabitEthernet1/1/8</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:a4</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TwentyFiveGigE1/1/1</name>
+			<config>
+				<name>TwentyFiveGigE1/1/1</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:a7</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>TwentyFiveGigE1/1/2</name>
+			<config>
+				<name>TwentyFiveGigE1/1/2</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:a8</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>
+		<interface>
+			<name>Vlan1</name>
+			<config>
+				<name>Vlan1</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:l3ipvlan</type>
+				<enabled>true</enabled>
+			</config>
+			<routed-vlan xmlns="http://openconfig.net/yang/vlan">
+				<ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+					<addresses>
+						<address>
+							<ip>192.168.0.200</ip>
+							<config>
+								<ip>192.168.0.200</ip>
+								<prefix-length>24</prefix-length>
+							</config>
+						</address>
+					</addresses>
+				</ipv4>
+				<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+					<config>
+						<enabled>true</enabled>
+					</config>
+				</ipv6>
+			</routed-vlan>
+		</interface>
+	</interfaces>
+	<network-instances xmlns="http://openconfig.net/yang/network-instance">
+		<network-instance>
+			<name>Mgmt-vrf</name>
+			<config>
+				<name>Mgmt-vrf</name>
+				<type xmlns:oc-ni-types="http://openconfig.net/yang/network-instance-types">oc-ni-types:L3VRF</type>
+				<enabled-address-families xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV6</enabled-address-families>
+				<enabled-address-families xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV4</enabled-address-families>
+			</config>
+			<interfaces>
+				<interface>
+					<id>GigabitEthernet0/0</id>
+					<config>
+						<id>GigabitEthernet0/0</id>
+						<interface>GigabitEthernet0/0</interface>
+					</config>
+				</interface>
+			</interfaces>
+			<tables>
+				<table>
+					<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</protocol>
+					<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV4</address-family>
+					<config>
+						<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</protocol>
+						<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV4</address-family>
+					</config>
+				</table>
+				<table>
+					<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</protocol>
+					<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV6</address-family>
+					<config>
+						<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</protocol>
+						<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV6</address-family>
+					</config>
+				</table>
+				<table>
+					<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</protocol>
+					<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV4</address-family>
+					<config>
+						<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</protocol>
+						<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV4</address-family>
+					</config>
+				</table>
+				<table>
+					<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</protocol>
+					<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV6</address-family>
+					<config>
+						<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</protocol>
+						<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV6</address-family>
+					</config>
+				</table>
+			</tables>
+			<protocols>
+				<protocol>
+					<identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</identifier>
+					<name>DEFAULT</name>
+					<config>
+						<identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</identifier>
+						<name>DEFAULT</name>
+					</config>
+				</protocol>
+				<protocol>
+					<identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</identifier>
+					<name>DEFAULT</name>
+					<config>
+						<identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</identifier>
+						<name>DEFAULT</name>
+					</config>
+				</protocol>
+			</protocols>
+		</network-instance>
+		<network-instance>
+			<name>default</name>
+			<config>
+				<name>default</name>
+				<type xmlns:oc-ni-types="http://openconfig.net/yang/network-instance-types">oc-ni-types:DEFAULT_INSTANCE</type>
+				<description>default-vrf [read-only]</description>
+			</config>
+			<tables>
+				<table>
+					<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</protocol>
+					<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV4</address-family>
+					<config>
+						<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</protocol>
+						<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV4</address-family>
+					</config>
+				</table>
+				<table>
+					<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</protocol>
+					<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV6</address-family>
+					<config>
+						<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</protocol>
+						<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV6</address-family>
+					</config>
+				</table>
+				<table>
+					<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</protocol>
+					<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV4</address-family>
+					<config>
+						<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</protocol>
+						<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV4</address-family>
+					</config>
+				</table>
+				<table>
+					<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</protocol>
+					<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV6</address-family>
+					<config>
+						<protocol xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</protocol>
+						<address-family xmlns:oc-types="http://openconfig.net/yang/openconfig-types">oc-types:IPV6</address-family>
+					</config>
+				</table>
+			</tables>
+			<protocols>
+				<protocol>
+					<identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</identifier>
+					<name>DEFAULT</name>
+					<config>
+						<identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:STATIC</identifier>
+						<name>DEFAULT</name>
+					</config>
+				</protocol>
+				<protocol>
+					<identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</identifier>
+					<name>DEFAULT</name>
+					<config>
+						<identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:DIRECTLY_CONNECTED</identifier>
+						<name>DEFAULT</name>
+					</config>
+				</protocol>
+			</protocols>
+		</network-instance>
+	</network-instances>
+	<components xmlns="http://openconfig.net/yang/platform">
+		<component>
+			<name>Fan1/1</name>
+		</component>
+		<component>
+			<name>Fan1/2</name>
+		</component>
+		<component>
+			<name>Fan1/3</name>
+		</component>
+		<component>
+			<name>Switch1</name>
+		</component>
+		<component>
+			<name>c93xx Stack</name>
+		</component>
+		<component>
+			<name>RPSContainer1</name>
+		</component>
+		<component>
+			<name>FixedModule1/0</name>
+		</component>
+		<component>
+			<name>PowerSupply1/A</name>
+		</component>
+		<component>
+			<name>PowerSupply1/B</name>
+		</component>
+		<component>
+			<name>FanContainer1/1</name>
+		</component>
+		<component>
+			<name>FanContainer1/2</name>
+		</component>
+		<component>
+			<name>FanContainer1/3</name>
+		</component>
+		<component>
+			<name>InletTempSensor1</name>
+		</component>
+		<component>
+			<name>OutletTempSensor1</name>
+		</component>
+		<component>
+			<name>FRUUplinkModule1/1</name>
+		</component>
+		<component>
+			<name>HotSpotTempSensor1</name>
+		</component>
+		<component>
+			<name>FRULinkContainer1/1</name>
+		</component>
+		<component>
+			<name>PowerSupplyContainer1/A</name>
+		</component>
+		<component>
+			<name>PowerSupplyContainer1/B</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/1</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/2</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/3</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/4</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/5</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/6</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/7</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/8</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/9</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/10</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/11</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/12</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/13</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/14</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/15</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/16</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/17</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/18</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/19</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/20</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/21</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/22</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/23</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernet1/0/24</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernetContainer1/1/1</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernetContainer1/1/2</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernetContainer1/1/3</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernetContainer1/1/4</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernetContainer1/1/5</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernetContainer1/1/6</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernetContainer1/1/7</name>
+		</component>
+		<component>
+			<name>TenGigabitEthernetContainer1/1/8</name>
+		</component>
+	</components>
+	<stp xmlns="http://openconfig.net/yang/spanning-tree">
+		<global>
+			<config>
+				<bridge-assurance>true</bridge-assurance>
+				<etherchannel-misconfig-guard>true</etherchannel-misconfig-guard>
+				<loop-guard>false</loop-guard>
+				<bpdu-guard>false</bpdu-guard>
+				<bpdu-filter>false</bpdu-filter>
+				<enabled-protocol xmlns="http://cisco.com/ns/yang/cisco-xe-openconfig-spanning-tree-ext" xmlns:oc-stp-types="http://openconfig.net/yang/spanning-tree/types">oc-stp-types:RAPID_PVST</enabled-protocol>
+			</config>
+		</global>
+		<rapid-pvst>
+			<vlan>
+				<vlan-id>1</vlan-id>
+				<interfaces>
+					<interface>
+						<name>TenGigabitEthernet1/0/1</name>
+					</interface>
+				</interfaces>
+			</vlan>
+		</rapid-pvst>
+	</stp>
+	<system xmlns="http://openconfig.net/yang/system">
+		<config>
+			<hostname>Switch</hostname>
+		</config>
+		<ntp>
+			<config>
+				<enabled>false</enabled>
+				<enable-ntp-auth>false</enable-ntp-auth>
+			</config>
+		</ntp>
+		<ssh-server>
+			<config>
+				<protocol-version>V1_V2</protocol-version>
+			</config>
+		</ssh-server>
+		<aaa>
+			<authentication>
+				<config>
+					<authentication-method xmlns:oc-aaa-types="http://openconfig.net/yang/aaa/types">oc-aaa-types:LOCAL</authentication-method>
+				</config>
+				<users>
+					<user>
+						<username>cisco</username>
+						<config>
+							<username>cisco</username>
+							<password>cisco</password>
+							<role xmlns:oc-aaa-types="http://openconfig.net/yang/aaa/types">oc-aaa-types:SYSTEM_ROLE_ADMIN</role>
+						</config>
+					</user>
+				</users>
+			</authentication>
+			<authorization>
+				<events>
+					<event>
+						<event-type xmlns:oc-aaa-types="http://openconfig.net/yang/aaa/types">oc-aaa-types:AAA_AUTHORIZATION_EVENT_CONFIG</event-type>
+						<config>
+							<event-type xmlns:oc-aaa-types="http://openconfig.net/yang/aaa/types">oc-aaa-types:AAA_AUTHORIZATION_EVENT_CONFIG</event-type>
+						</config>
+					</event>
+				</events>
+			</authorization>
+		</aaa>
+	</system>
+	<classifiers xmlns="urn:ietf:params:xml:ns:yang:ietf-diffserv-classifier">
+		<classifier-entry>
+			<classifier-entry-name>non-client-nrt-class</classifier-entry-name>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-default</classifier-entry-name>
+			<classifier-entry-descr>Inter FED, EWLC control, EWLC data</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-data</classifier-entry-name>
+			<classifier-entry-descr>ICMP redirect, ICMP_GEN and BROADCAST</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-dhcp-snooping</classifier-entry-name>
+			<classifier-entry-descr>DHCP snooping</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-dot1x-auth</classifier-entry-name>
+			<classifier-entry-descr>DOT1X Auth</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-forus</classifier-entry-name>
+			<classifier-entry-descr>Forus Address resolution and Forus traffic</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-high-rate-app</classifier-entry-name>
+			<classifier-entry-descr>High Rate Applications</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-l2-control</classifier-entry-name>
+			<classifier-entry-descr>L2 control</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-l2lvx-control</classifier-entry-name>
+			<classifier-entry-descr>L2 LVX control packets</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-multicast</classifier-entry-name>
+			<classifier-entry-descr>Transit Traffic and MCAST Data</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-multicast-end-station</classifier-entry-name>
+			<classifier-entry-descr>MCAST END STATION</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-protocol-snooping</classifier-entry-name>
+			<classifier-entry-descr>Protocol snooping</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-punt-webauth</classifier-entry-name>
+			<classifier-entry-descr>Punt Webauth</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-routing-control</classifier-entry-name>
+			<classifier-entry-descr>Routing control and Low Latency</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-stackwise-virt-control</classifier-entry-name>
+			<classifier-entry-descr>Stackwise Virtual</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-sw-forward</classifier-entry-name>
+			<classifier-entry-descr>Sw forwarding, L2 LVX data, LOGGING</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-sys-data</classifier-entry-name>
+			<classifier-entry-descr>Learning cache ovfl, High Rate App, Exception, EGR Exception, NFL SAMPLED DATA, RPF Failed</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-system-critical</classifier-entry-name>
+			<classifier-entry-descr>System Critical and Gold Pkt</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+		<classifier-entry>
+			<classifier-entry-name>system-cpp-police-topology-control</classifier-entry-name>
+			<classifier-entry-descr>Topology control</classifier-entry-descr>
+			<classifier-entry-filter-operation>match-any-filter</classifier-entry-filter-operation>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>false</filter-logical-not>
+			</filter-entry>
+			<filter-entry>
+				<filter-type xmlns:policy-types="urn:ietf:params:xml:ns:yang:c3pl-types">policy-types:ip-rtp</filter-type>
+				<filter-logical-not>true</filter-logical-not>
+			</filter-entry>
+		</classifier-entry>
+	</classifiers>
+	<policies xmlns="urn:ietf:params:xml:ns:yang:ietf-diffserv-policy">
+		<policy-entry>
+			<policy-name>system-cpp-policy</policy-name>
+		</policy-entry>
+	</policies>
+	<interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+		<interface>
+			<name>FortyGigabitEthernet1/1/1</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>FortyGigabitEthernet1/1/2</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>GigabitEthernet0/0</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>false</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>GigabitEthernet1/1/1</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>GigabitEthernet1/1/2</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>GigabitEthernet1/1/3</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>GigabitEthernet1/1/4</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/1</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/10</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/11</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/12</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/13</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/14</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/15</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/16</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/17</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/18</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/19</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/2</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/20</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/21</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/22</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/23</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/24</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/3</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/4</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/5</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/6</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/7</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/8</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/0/9</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/1</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/2</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/3</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/4</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/5</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/6</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/7</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TenGigabitEthernet1/1/8</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TwentyFiveGigE1/1/1</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>TwentyFiveGigE1/1/2</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+		<interface>
+			<name>Vlan1</name>
+			<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:l3ipvlan</type>
+			<enabled>true</enabled>
+			<ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
+				<address>
+					<ip>192.168.0.200</ip>
+					<netmask>255.255.255.0</netmask>
+				</address>
+			</ipv4>
+			<ipv6 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip"/>
+		</interface>
+	</interfaces>
+	<nacm xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-acm">
+		<enable-nacm>true</enable-nacm>
+		<read-default>deny</read-default>
+		<write-default>deny</write-default>
+		<exec-default>deny</exec-default>
+		<enable-external-groups>true</enable-external-groups>
+		<rule-list>
+			<name>admin</name>
+			<group>PRIV15</group>
+			<rule>
+				<name>permit-all</name>
+				<module-name>*</module-name>
+				<access-operations>*</access-operations>
+				<action>permit</action>
+			</rule>
+		</rule-list>
+	</nacm>
+	<routing xmlns="urn:ietf:params:xml:ns:yang:ietf-routing">
+		<routing-instance>
+			<name>Mgmt-vrf</name>
+			<interfaces>
+				<interface>GigabitEthernet0/0</interface>
+			</interfaces>
+			<routing-protocols>
+				<routing-protocol>
+					<type>static</type>
+					<name>1</name>
+				</routing-protocol>
+			</routing-protocols>
+		</routing-instance>
+		<routing-instance>
+			<name>default</name>
+			<description>default-vrf [read-only]</description>
+			<routing-protocols>
+				<routing-protocol>
+					<type>static</type>
+					<name>1</name>
+				</routing-protocol>
+			</routing-protocols>
+		</routing-instance>
+	</routing>
+</data>

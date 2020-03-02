@@ -1,0 +1,24 @@
+
+curl https://raw.githubusercontent.com/openconfig/public/master/release/models/local-routing/openconfig-local-routing.yang -o openconfig-local-routing.yang
+curl https://raw.githubusercontent.com/openconfig/public/master/release/models/interfaces/openconfig-interfaces.yang -o openconfig-interfaces.yang
+curl https://raw.githubusercontent.com/openconfig/public/master/release/models/openconfig-extensions.yang -o openconfig-extensions.yang
+curl https://raw.githubusercontent.com/openconfig/public/master/release/models/policy/openconfig-policy-types.yang -o openconfig-policy-types.yang
+curl https://raw.githubusercontent.com/robshakir/yang/master/standard/ietf/RFC/ietf-yang-types.yang -o ietf-yang-types.yang
+curl https://raw.githubusercontent.com/robshakir/yang/master/standard/ietf/RFC/ietf-inet-types.yang -o ietf-inet-types.yang
+curl https://raw.githubusercontent.com/robshakir/yang/master/standard/ietf/RFC/ietf-interfaces.yang -o ietf-interfaces.yang
+curl https://raw.githubusercontent.com/openconfig/public/master/release/models/types/openconfig-inet-types.yang -o openconfig-inet-types.yang
+curl https://raw.githubusercontent.com/openconfig/public/master/release/models/types/openconfig-yang-types.yang -o openconfig-yang-types.yang
+curl https://raw.githubusercontent.com/openconfig/public/master/release/models/types/openconfig-types.yang -o openconfig-types.yang
+curl https://raw.githubusercontent.com/openconfig/public/master/release/models/vlan/openconfig-vlan-types.yang -o openconfig-vlan-types.yang
+
+
+export PYBINDPLUGIN=`/usr/bin/env python3 -c \
+'import pyangbind; import os; print ("{}/plugin".format(os.path.dirname(pyangbind.__file__)))'`
+
+echo $PYBINDPLUGIN
+
+
+
+pyang --plugindir $PYBINDPLUGIN -f pybind -o binding.py tests/base-test.yang
+
+

@@ -1,0 +1,30 @@
+		<interface>
+			<name>
+            TenGigabitEthernet1/0/19
+            </name>
+			<config>
+				<name>TenGigabitEthernet1/0/19</name>
+				<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:ethernetCsmacd</type>
+				<enabled>true</enabled>
+			</config>
+			<subinterfaces>
+				<subinterface>
+					<index>0</index>
+					<config>
+						<index>0</index>
+						<enabled>true</enabled>
+					</config>
+					<ipv6 xmlns="http://openconfig.net/yang/interfaces/ip">
+						<config>
+							<enabled>false</enabled>
+						</config>
+					</ipv6>
+				</subinterface>
+			</subinterfaces>
+			<ethernet xmlns="http://openconfig.net/yang/interfaces/ethernet">
+				<config>
+					<mac-address>04:6c:9d:01:ff:93</mac-address>
+					<auto-negotiate>false</auto-negotiate>
+				</config>
+			</ethernet>
+		</interface>

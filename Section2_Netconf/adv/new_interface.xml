@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<nc:config xmlns:if="urn:ietf:params:xml:ns:yang:ietf-interfaces" xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:inet="urn:ietf:params:xml:ns:yang:ietf-inet-types" xmlns:ip="urn:ietf:params:xml:ns:yang:ietf-ip" xmlns:yang="urn:ietf:params:xml:ns:yang:ietf-yang-types"><if:interfaces><if:interface><if:name>TenGigabitEthernet1/0/3</if:name><if:description>NETCONF-CONFIGURED PORT</if:description></if:interface></if:interfaces></nc:config>

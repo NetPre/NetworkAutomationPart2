@@ -1,0 +1,14 @@
+
+
+https://github.com/robshakir/pyangbind
+
+
+export PYBINDPLUGIN=/home/carl/Desktop/USBNetworkAutomation-Part2/Section2_Netconf/pyangbind/plugin
+
+
+
+echo $PYBINDPLUGIN
+
+
+# this work on python2 only on 3 will have an error
+pyang --plugindir $PYBINDPLUGIN -f pybind -o ietf_ip_binding.py ietf-ip.yang ietf-interfaces.yang ietf-inet-types.yang  ietf-yang-types.yang
